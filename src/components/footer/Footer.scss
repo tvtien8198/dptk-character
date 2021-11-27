@@ -1,0 +1,30 @@
+@use "../../scss/" as *;
+
+.footer {
+    height: 5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 120;
+    pointer-events: visible;
+
+    &__inner {
+        height: 100%;
+        padding: 0 4rem;
+        @include flex(center, space-between);
+        .social__left > box-icon,
+        .social__right > box-icon {
+            padding-bottom: 4px;
+            border-bottom: 1px solid;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        @include mobile{
+            display: none;
+        }
+        
+    }
+
+
+}

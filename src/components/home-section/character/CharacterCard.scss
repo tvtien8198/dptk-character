@@ -1,0 +1,70 @@
+@use "../../../scss/" as *;
+@use "sass:math";
+
+.champion-card {
+    $width: 270px;
+    width: $width;
+    height: #{math.div($width * 14, 7)};
+    position: relative;
+    pointer-events: none;
+
+    &:hover img {
+        opacity: 1;
+    }
+
+    img {
+        max-width: 100%;
+        position: relative;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .frame,
+    .name {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &:hover .frame::before {
+        opacity: 1;
+    }
+
+    .frame {
+        width: 85%;
+        height: 75%;
+        overflow: hidden;
+        bottom: 0;
+        pointer-events: visible;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 65%, rgb(0 0 0 / 96%));
+        }
+        .bg {
+            position: absolute;
+            border-radius: 5px;
+            inset: 0;
+            &::before {
+                background-color: rgba($color: #000000, $alpha: 0);
+            }
+        }
+
+        &:hover .frame .bg::before {
+            background-color: rgba($color: #000000, $alpha: 0.6);
+        }
+    }
+
+    .name {
+        height: max-content;
+        bottom: 4px;
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 1.5rem;
+    }
+}

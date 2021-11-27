@@ -1,0 +1,27 @@
+@use "../../scss/" as *;
+
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+
+    &__inner {
+        @include flex(center, center);
+        height: 100%;
+    }
+
+    &__logo {
+        width: 220px;
+        margin-top: 10px;
+        pointer-events: visible;
+
+        img {
+            width: 100%;
+        }
+    }
+
+}

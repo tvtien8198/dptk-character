@@ -1,0 +1,102 @@
+@use "../../../scss/" as *;
+
+.champion-detail {
+    position: fixed;
+    background-color: $black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 135;
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(250px);
+    transition: opacity .6s ease, visibility .6s ease, filter .6s ease-in-out;
+
+    @include flex(flex-start, flex-end);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        filter: blur(0);
+    }
+
+    &__content {
+        @include flex(center, space-between);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 2rem 0;
+        position: relative;
+        @include mobile {
+            flex-direction: column;
+        }
+        .content__left{
+            position: fixed;
+            width: 35%;
+            
+            @include flex(center, center);
+            @include mobile {
+                position: unset;
+                width: 40%;
+            }
+            img {
+                width: 60%;
+                @include mobile {
+                    width: 100%;
+                }
+                border-radius: 20px;
+            }
+        }
+        .content__right{
+            top: 0;
+            right: 0;
+            position: absolute;
+            width: 65%;
+            height: 100%;
+            padding: 5rem 5rem 0 0 ;
+            overflow-y: auto;
+            @include mobile {
+                position: unset;
+                width: 80%;
+                padding: 0;
+            }
+            .another__name{
+                position: relative;
+                padding-left: 2rem;
+                font-size: 1.1rem;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 1.5rem;
+                    height: 1px;
+                    background-color: $main-color;
+                }
+            }
+            .name {
+                font-size: 5rem;
+            }
+
+            .story {
+                width: 100%;
+                padding-left: 1rem;
+                border-left: 2px solid $main-color;
+                margin: 1rem 0;
+            }
+        }
+
+        
+    }
+
+    &__close {
+        width: 50px;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+    }
+}

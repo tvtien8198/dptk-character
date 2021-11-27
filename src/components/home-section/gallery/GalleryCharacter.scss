@@ -1,0 +1,108 @@
+@use "../../../scss/" as *;
+
+.gallery-character {
+
+    position: relative;
+    height: 100%;
+    &__tab {
+        position: relative;
+        .img__thumbs {
+            width: 60px;
+            height: 75px;
+            margin-bottom: .5rem;
+            padding: 3px;
+            background: none;
+            transition: background .5s ease-in-out;
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            cursor: pointer;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+                
+            }
+        }
+    }
+    .react-tabs__tab--selected {
+        .img__thumbs {
+            background: $white;
+        }
+    }
+    .react-tabs__tab-panel--selected {
+        animation: videoFilter .8s ease-in-out;
+    }
+    &__tablist {
+        position: absolute;
+        top: 50%;
+        right: 10rem;
+        z-index: 100;
+        height: 100%;
+        transform: translateY(-50%);
+        @include flex(center, center);
+        flex-direction: column;
+        @include mobile{
+            flex-direction: row;
+            top: auto;
+            right: 0;
+            bottom: 25%;
+            width: 100%;
+            height: auto;
+            transform: translateY(0);
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 3px;
+            height: 100%;
+            z-index: -1;
+            @include mobile{
+                width: 0;
+            }
+        }
+    }
+    &__panel {
+        position: absolute;
+        width: 60%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include mobile {
+            width: 75%;
+        }
+        span {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+    }
+    
+}
+@keyframes videoFilter {
+    0% {
+        filter: blur(200px);
+    }
+    100% {
+        filter: blur(0);
+    }
+}
+@keyframes imgSelected {
+    0% {
+        filter: blur(250px);
+    }
+    100% {
+        filter: blur(0);
+    }
+}

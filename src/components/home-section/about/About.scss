@@ -1,0 +1,122 @@
+@use "../../../scss/" as *;
+
+.welcome {
+    &__content {
+        @include flex(center, center);
+        @include mobile{
+            flex-direction: column;
+        }
+    }
+
+    &__info,
+    &__img {
+        height: auto;
+        @include mobile{
+            height: 100%;
+        }
+    }
+
+
+    &__img{
+        width: 40%;
+        @include mobile{
+            width: 100%;
+        }
+    }
+
+    &__info {
+        width: 60%;
+        @include flex(flex-start, flex-end);
+        @include mobile{
+            display: none;
+        }
+
+        &__content {
+            padding-left: 5rem;
+            .title {
+                font-family: $font-title;
+            }
+
+            .description {
+                font-size: 1.3rem;
+                font-weight: 500;
+                .show__text {
+                    color: $main-color;
+                    margin-left: 5px;
+                }
+            }
+            .info{
+                position: absolute;
+                width: 100%;
+                @include flex(center, flex-start);
+                &__cate {
+                    margin-right: 2rem;
+                }
+            }
+            
+        }
+    }
+
+    &__img {
+        @include flex(center, center);
+
+        &__slide {
+            width: 40%;
+            height: auto;
+            @include mobile {
+                width: 100%;
+            }
+            overflow: hidden;
+            .swiper-pagination-bullet {
+                $size: 20px;
+                width: $size;
+                height: $size;
+                border-radius: unset;
+                margin: 10px;
+                background-color: transparent;
+              
+                position: relative;
+              
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 35%;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: $second-color;
+                }
+              
+                &-active {
+                    background-color: transparent;
+                    &::before {
+                        height: 40%;
+                        background-color: white;
+                    }
+                }
+              }
+
+        }
+        &__frames {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            border-radius: 10px;
+            img {
+                max-width: 100%;
+                height: 100%;
+                transition: .7s all ease-in-out;
+                opacity: .2;
+                filter: blur(100px);
+            }
+        }
+        &__frames.active {
+            img {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    }
+}

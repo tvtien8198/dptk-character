@@ -1,0 +1,211 @@
+@use "./scss/" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html,
+body {
+  font-size: 100%;
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: $black;
+  color: $white;
+  overflow: hidden;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+iframe {
+  border: 0;
+}
+
+#root,
+.App {
+  height: 100%;
+}
+
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: relative;
+
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+  }
+}
+.overlay__totop {
+  position: relative;
+
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(transparent 35%, rgb(0 0 0 / 96%));
+  }
+}
+
+.main-color {
+  color: $main-color;
+}
+
+.second-color {
+  color: $second-color;
+}
+
+.title {
+  font-weight: 700;
+  span {
+      font-size: 5rem;
+      @include mobile {
+        font-size: 3rem;
+      }
+  }
+  h2 {
+      font-size: 5rem;
+      line-height: 5rem;
+  }
+}
+
+.container {
+  max-width: 1670px;
+  margin: auto;
+}
+
+.m-t-2 {
+  margin-top: 2rem;
+}
+
+.m-t-1 {
+  margin-top: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.swiper-container,
+.swiper-slide {
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  $size: 20px;
+  width: $size;
+  height: $size;
+  border-radius: unset;
+  margin: 10px;
+  background-color: transparent;
+
+  position: relative;
+
+  &::before {
+      content: "";
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background-color: $second-color;
+  }
+
+  &-active {
+      background-color: transparent;
+
+      &::before {
+          background-color: $main-color;
+      }
+  }
+}
+
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 500ms, -webkit-filter 1s;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+
+.scroll {
+  position: fixed;
+  bottom: 2rem;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  box-icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 3s ease infinite;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 2rem;
+    background-color: aliceblue;
+    
+  }
+}
+@keyframes bounce {
+  0% {
+      transform: translateX(-50%) translateY(0);
+  }
+  50% {
+      transform: translateX(-50%) translateY(-8px);
+  }
+  100% {
+      transform: translateX(-50%) translateY(0);
+  }
+}
+.white-color {
+  color: $white;
+}
+
+.size-md {
+  font-size: 1.1rem;
+}
