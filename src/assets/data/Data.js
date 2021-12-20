@@ -138,26 +138,26 @@ Không được bao lâu thì bị trưởng lão phát hiện ra, Hải Đông 
 
 export const VideoCharacter = [
     {
-        fullName: 'Tieu Viem',
+        fullName: 'Tiêu Viêm',
         imgThumb: AnoImage8,
         video: TVVideo
     },
     {
-        fullName: 'Tieu Viem2',
+        fullName: 'Mỹ Đỗ Toa',
         imgThumb: AnoImage7,
         video: TLVideo
     },
     {
-        fullName: 'Tieu Viem3',
+        fullName: 'Vân Vận',
         imgThumb: AnoImage5,
         video: VVVideo
     },
     {
-        fullName: 'Tieu Viem3',
+        fullName: 'Vân Sơn',
         imgThumb: AnoImage6,
         video: VSVideo
     },{
-        fullName: 'Tieu Viem3',
+        fullName: 'Nạp Lan Yên Nhiên',
         imgThumb: AnoImage4,
         video: YNVideo
     },
